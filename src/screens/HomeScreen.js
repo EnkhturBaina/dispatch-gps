@@ -1,20 +1,21 @@
-import { StyleSheet, Text, View, useColorScheme } from "react-native";
-import React from "react";
+import { StyleSheet, Text, View } from "react-native";
+import React, { useContext } from "react";
 import FloatMenu from "../components/FloatMenu";
+import { DARK_MODE_BG_COLOR } from "../constant";
+import MainContext from "../contexts/MainContext";
 
 const HomeScreen = () => {
-  let colorScheme = useColorScheme();
-
-  if (colorScheme === "dark") {
-    // render some dark thing
-    console.log("DARK");
-  } else {
-    console.log("LIGHT");
-    // render some light thing
-  }
+  const state = useContext(MainContext);
   return (
-    <View>
-      <Text>HomeScreen</Text>
+    <View
+      style={{
+        flex: 1,
+        backgroundColor: state.isDark ? DARK_MODE_BG_COLOR : "#fff",
+      }}
+    >
+      <Text style={{ color: state.isDark ? DARK_MODE_BG_COLOR : "#000" }}>
+        HomeScreen
+      </Text>
       <FloatMenu />
     </View>
   );
