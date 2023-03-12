@@ -7,7 +7,7 @@ const LoginScreen = () => {
   const state = useContext(MainContext);
 
   return (
-    <View>
+    <View style={{ backgroundColor: "#fff" }}>
       <Text>LoginScreen</Text>
       <Button
         icon="camera"

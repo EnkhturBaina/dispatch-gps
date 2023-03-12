@@ -15,10 +15,12 @@ const FloatMenu = () => {
         width: "5%",
         flexDirection: "column",
         backgroundColor: state.isDark ? DARK_MODE_BG_COLOR : "#fff",
-        zIndex: 999,
       }}
     >
-      <TouchableOpacity style={styles.eachMenuContainer}>
+      <TouchableOpacity
+        style={styles.eachMenuContainer}
+        onPress={() => state.setIsLoggedIn(false)}
+      >
         <Icon
           type="feather"
           name="power"
