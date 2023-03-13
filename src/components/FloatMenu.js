@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
+import { Text, View, TouchableOpacity, SafeAreaView } from "react-native";
 import React, { useContext, useEffect } from "react";
 import { Icon } from "@rneui/base";
 import { DARK_MODE_BG_COLOR, DARK_MODE_LIGHT_COLOR } from "../constant";
@@ -7,12 +7,20 @@ import MainContext from "../contexts/MainContext";
 const FloatMenu = () => {
   const state = useContext(MainContext);
 
+  const styles = {
+    eachMenuContainer: {
+      borderWidth: 1,
+      height: 50,
+      justifyContent: "center",
+      borderColor: state.isDark ? DARK_MODE_LIGHT_COLOR : DARK_MODE_BG_COLOR,
+    },
+  };
   return (
     <View
       style={{
         position: "absolute",
         top: 30,
-        width: "5%",
+        width: 50,
         flexDirection: "column",
         backgroundColor: state.isDark ? DARK_MODE_BG_COLOR : "#fff",
       }}
@@ -47,7 +55,7 @@ const FloatMenu = () => {
       <TouchableOpacity style={styles.eachMenuContainer}>
         <Icon
           type="ionicon"
-          name="earth-outline"
+          name="earth"
           size={30}
           color={state.isDark ? DARK_MODE_LIGHT_COLOR : DARK_MODE_BG_COLOR}
         />
@@ -68,11 +76,3 @@ const FloatMenu = () => {
 };
 
 export default FloatMenu;
-
-const styles = StyleSheet.create({
-  eachMenuContainer: {
-    borderWidth: 1,
-    height: 50,
-    justifyContent: "center",
-  },
-});

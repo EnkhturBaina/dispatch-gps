@@ -2,6 +2,7 @@ import { StyleSheet, Text, View } from "react-native";
 import React, { useContext } from "react";
 import { Button } from "react-native-paper";
 import MainContext from "../contexts/MainContext";
+import FloatMenu from "../components/FloatMenu";
 
 const LoginScreen = () => {
   const state = useContext(MainContext);
@@ -16,6 +17,7 @@ const LoginScreen = () => {
       >
         Press me
       </Button>
+      <FloatMenu />
     </View>
   );
 };
