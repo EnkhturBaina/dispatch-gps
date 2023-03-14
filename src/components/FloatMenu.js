@@ -1,7 +1,11 @@
 import { Text, View, TouchableOpacity, SafeAreaView } from "react-native";
 import React, { useContext, useEffect } from "react";
 import { Icon } from "@rneui/base";
-import { DARK_MODE_BG_COLOR, DARK_MODE_LIGHT_COLOR } from "../constant";
+import {
+  DARK_MODE_BG_COLOR,
+  DARK_MODE_BG_COLOR_LIGHT,
+  DARK_MODE_LIGHT_COLOR,
+} from "../constant";
 import MainContext from "../contexts/MainContext";
 
 const FloatMenu = () => {
@@ -19,10 +23,10 @@ const FloatMenu = () => {
     <View
       style={{
         position: "absolute",
-        top: 30,
         width: 50,
         flexDirection: "column",
-        backgroundColor: state.isDark ? DARK_MODE_BG_COLOR : "#fff",
+        backgroundColor: state.isDark ? DARK_MODE_BG_COLOR_LIGHT : "#fff",
+        zIndex: 9999,
       }}
     >
       <TouchableOpacity

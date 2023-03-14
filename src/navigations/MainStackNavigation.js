@@ -8,6 +8,7 @@ import MainContext from "../contexts/MainContext";
 
 import LoginScreen from "../screens/LoginScreen";
 import HomeScreen from "../screens/HomeScreen";
+import CheckListScreen from "../screens/CheckListScreen";
 
 const Stack = createStackNavigator();
 
@@ -38,9 +39,10 @@ const LoginStackNavigator = (props) => {
 };
 
 const HomeScreenStackNavigator = (props) => {
+  const state = useContext(MainContext);
   return (
     <Stack.Navigator
-      initialRouteName="HomeScreen"
+      initialRouteName="CheckListScreen"
       screenOptions={{
         // headerShown: false,
         headerStyle: {
@@ -52,6 +54,16 @@ const HomeScreenStackNavigator = (props) => {
       <Stack.Screen
         name="HomeScreen"
         component={HomeScreen}
+        options={{
+          headerShown: false,
+          title: "",
+          headerTitleStyle: {},
+          headerLeft: () => <></>,
+        }}
+      />
+      <Stack.Screen
+        name="CheckListScreen"
+        component={CheckListScreen}
         options={{
           headerShown: false,
           title: "",

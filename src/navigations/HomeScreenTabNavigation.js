@@ -22,7 +22,7 @@ const HomeScreenTabNavigation = () => {
     return <LoginStackNavigator />;
   } else {
     return (
-      <HomeScreen />
+      <HomeScreenStackNavigator />
       // <Tab.Navigator
       //   screenOptions={{
       //     tabBarLabelPosition: "below-icon",

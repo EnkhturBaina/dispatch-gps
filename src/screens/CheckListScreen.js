@@ -1,11 +1,28 @@
-import { StyleSheet, Text, View } from "react-native";
-import React from "react";
+import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
+import React, { useContext } from "react";
+import { DARK_MODE_BG_COLOR } from "../constant";
+import FloatMenu from "../components/FloatMenu";
+import MainContext from "../contexts/MainContext";
 
-const CheckListScreen = () => {
+const CheckListScreen = (props) => {
+  const state = useContext(MainContext);
   return (
-    <View>
-      <Text>CheckListScreen</Text>
-    </View>
+    <>
+      <FloatMenu />
+      <View
+        style={{
+          backgroundColor: state.isDark ? DARK_MODE_BG_COLOR : "#fff",
+          flex: 1,
+          justifyContent: "center",
+        }}
+      >
+        <TouchableOpacity
+          onPress={() => props.navigation.navigate("HomeScreen")}
+        >
+          <Text>СИСТЕМД НЭВТРЭХ</Text>
+        </TouchableOpacity>
+      </View>
+    </>
   );
 };
 

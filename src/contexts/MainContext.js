@@ -11,6 +11,7 @@ export const MainStore = (props) => {
   const [isLoading, setIsLoading] = useState(false); //*****Апп ачааллах эсэх
   const [isLoggedIn, setIsLoggedIn] = useState(false); //*****Нэвтэрсэн эсэх
   const [isDark, setIsDark] = useState(true);
+  const [checkListDone, setCheckListDone] = useState(false);
 
   let colorScheme = useColorScheme();
 
@@ -29,6 +30,8 @@ export const MainStore = (props) => {
         setIsLoggedIn,
         isDark,
         setIsDark,
+        checkListDone,
+        setCheckListDone,
       }}
     >
       {props.children}
