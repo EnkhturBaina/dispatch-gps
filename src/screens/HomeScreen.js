@@ -8,6 +8,14 @@ import {
 } from "../constant";
 import MainContext from "../contexts/MainContext";
 import { Icon } from "@rneui/base";
+import { useState } from "react";
+import {
+  Menu,
+  MenuOptions,
+  MenuOption,
+  MenuTrigger,
+  renderers,
+} from "react-native-popup-menu";
 
 const HomeScreen = () => {
   const state = useContext(MainContext);
@@ -19,24 +27,32 @@ const HomeScreen = () => {
       }}
     >
       <FloatMenu />
-      <View style={styles.mainContainer}>
-        <Text style={{ color: state.isDark ? DARK_MODE_BG_COLOR : "#000" }}>
-          HomeScreen
-        </Text>
-        <View></View>
-      </View>
+      <View style={styles.mainContainer}></View>
       <View style={styles.floatingMenuContainer}>
-        <TouchableOpacity style={styles.floatinMenu}>
-          <Text style={{ color: "#fff" }}>МАТЕРИАЛЫН УРСГАЛ</Text>
-          <Icon
-            type="entypo"
-            name="resize-full-screen"
-            size={25}
-            color="#fff"
-          />
-        </TouchableOpacity>
-      </View>
-      <View style={styles.verticalFloatingMenuContainer}>
+        <Menu renderer={renderers.Popover}>
+          <MenuTrigger style={styles.floatinMenu}>
+            <Text style={{ color: "#fff" }}>МАТЕРИАЛЫН УРСГАЛ</Text>
+            <Icon
+              type="entypo"
+              name="resize-full-screen"
+              size={25}
+              color="#fff"
+            />
+          </MenuTrigger>
+          <MenuOptions
+            style={{
+              backgroundColor: state.isDark ? DARK_MODE_BG_COLOR : "#fff",
+            }}
+          >
+            <MenuOption
+              onSelect={() => alert(`Save`)}
+              text="(W2) Ул, хана цэвэрлэх"
+              customStyles={{
+                optionText: { color: MAIN_COLOR_GREEN },
+              }}
+            />
+          </MenuOptions>
+        </Menu>
         <TouchableOpacity style={styles.verticalFloatinMenu}>
           <Text style={{ color: "#fff" }}>БҮТЭЭЛТЭЙ АЖИЛЛАХ</Text>
           <Icon
@@ -48,41 +64,102 @@ const HomeScreen = () => {
         </TouchableOpacity>
       </View>
       <View style={styles.bottomContainer}>
-        <TouchableOpacity
-          style={{
-            flex: 1,
-            backgroundColor: MAIN_COLOR_GREEN,
-            marginRight: 5,
-          }}
-        >
-          <Text style={styles.bottomBtnText}>БҮТЭЭЛИЙН БУС АЖИЛЛАХ</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={{
-            flex: 1,
-            backgroundColor: "#faeb61",
-            marginRight: 5,
-          }}
-        >
-          <Text style={styles.bottomBtnText}>СААТАЛ</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={{
-            flex: 1,
-            backgroundColor: "#79a0fc",
-            marginRight: 5,
-          }}
-        >
-          <Text style={styles.bottomBtnText}>СУЛ ЗОГСОЛТ</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={{
-            flex: 1,
-            backgroundColor: MAIN_COLOR_RED,
-          }}
-        >
-          <Text style={styles.bottomBtnText}>ЭВДРЭЛ</Text>
-        </TouchableOpacity>
+        <Menu renderer={renderers.Popover} style={{ flex: 1 }}>
+          <MenuTrigger
+            style={{
+              backgroundColor: MAIN_COLOR_GREEN,
+              marginRight: 5,
+              height: 40,
+            }}
+          >
+            <Text style={styles.bottomBtnText}>БҮТЭЭЛИЙН БУС АЖИЛЛАХ</Text>
+          </MenuTrigger>
+          <MenuOptions
+            style={{
+              backgroundColor: state.isDark ? DARK_MODE_BG_COLOR : "#fff",
+            }}
+          >
+            <MenuOption
+              onSelect={() => alert(`Save`)}
+              text="(W2) Ул, хана цэвэрлэх"
+              customStyles={{
+                optionText: { color: MAIN_COLOR_GREEN },
+              }}
+            />
+          </MenuOptions>
+        </Menu>
+        <Menu renderer={renderers.Popover} style={{ flex: 1 }}>
+          <MenuTrigger
+            style={{
+              backgroundColor: "#faeb61",
+              marginRight: 5,
+              height: 40,
+            }}
+          >
+            <Text style={styles.bottomBtnText}>СААТАЛ</Text>
+          </MenuTrigger>
+          <MenuOptions
+            style={{
+              backgroundColor: state.isDark ? DARK_MODE_BG_COLOR : "#fff",
+            }}
+          >
+            <MenuOption
+              onSelect={() => alert(`Save`)}
+              text="(W2) Ул, хана цэвэрлэх"
+              customStyles={{
+                optionText: { color: MAIN_COLOR_GREEN },
+              }}
+            />
+          </MenuOptions>
+        </Menu>
+        <Menu renderer={renderers.Popover} style={{ flex: 1 }}>
+          <MenuTrigger
+            style={{
+              backgroundColor: "#79a0fc",
+              marginRight: 5,
+              height: 40,
+            }}
+          >
+            <Text style={styles.bottomBtnText}>СУЛ ЗОГСОЛТ</Text>
+          </MenuTrigger>
+          <MenuOptions
+            style={{
+              backgroundColor: state.isDark ? DARK_MODE_BG_COLOR : "#fff",
+            }}
+          >
+            <MenuOption
+              onSelect={() => alert(`Save`)}
+              text="(W2) Ул, хана цэвэрлэх"
+              customStyles={{
+                optionText: { color: MAIN_COLOR_GREEN },
+              }}
+            />
+          </MenuOptions>
+        </Menu>
+        <Menu renderer={renderers.Popover} style={{ flex: 1 }}>
+          <MenuTrigger
+            style={{
+              backgroundColor: MAIN_COLOR_RED,
+              marginRight: 5,
+              height: 40,
+            }}
+          >
+            <Text style={styles.bottomBtnText}>ЭВДРЭЛ</Text>
+          </MenuTrigger>
+          <MenuOptions
+            style={{
+              backgroundColor: state.isDark ? DARK_MODE_BG_COLOR : "#fff",
+            }}
+          >
+            <MenuOption
+              onSelect={() => alert(`Save`)}
+              text="(W2) Ул, хана цэвэрлэх"
+              customStyles={{
+                optionText: { color: MAIN_COLOR_GREEN },
+              }}
+            />
+          </MenuOptions>
+        </Menu>
       </View>
     </View>
   );
@@ -109,6 +186,8 @@ const styles = StyleSheet.create({
     position: "absolute",
     bottom: 50,
     margin: 10,
+    justifyContent: "space-between",
+    width: "98%",
   },
   floatinMenu: {
     backgroundColor: "#00b0f0",
@@ -117,6 +196,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     alignItems: "center",
     paddingHorizontal: 10,
+    height: 40,
   },
   bottomContainer: {
     flex: 1,
@@ -127,21 +207,11 @@ const styles = StyleSheet.create({
     width: "98%",
     margin: 10,
   },
-  verticalFloatingMenuContainer: {
-    flex: 1,
-    backgroundColor: "red",
-    position: "absolute",
-    margin: 10,
-    width: "40%",
-    right: 0,
-    top: 200,
-    // transform: [{ rotate: "-90deg" }],
-  },
   verticalFloatinMenu: {
     backgroundColor: "#ffc001",
+    width: 300,
     flexDirection: "row",
-    justifyContent: "flex-end",
-    alignContent: "flex-start",
+    justifyContent: "space-between",
     alignItems: "center",
     paddingHorizontal: 10,
   },
