@@ -42,7 +42,7 @@ const HomeScreenStackNavigator = (props) => {
   const state = useContext(MainContext);
   return (
     <Stack.Navigator
-      initialRouteName="CheckListScreen"
+      initialRouteName="HomeScreen"
       screenOptions={{
         // headerShown: false,
         headerStyle: {

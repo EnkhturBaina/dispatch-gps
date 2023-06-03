@@ -113,7 +113,10 @@ const LoginScreen = () => {
               <Text style={styles.btnText}>АРИЛГАХ</Text>
             </TouchableOpacity>
             <TouchableOpacity
-              onPress={() => state.setIsLoggedIn(true)}
+              onPress={() => {
+                state.setIsLoggedIn(true);
+                state.setCheckListDone(false);
+              }}
               style={styles.loginBtn}
             >
               <Text style={styles.btnText}>СИСТЕМД НЭВТРЭХ</Text>
