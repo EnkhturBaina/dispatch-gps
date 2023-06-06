@@ -14,10 +14,10 @@ export default function App() {
       <NavigationContainer>
         <MainStore>
           <MenuProvider>
-            {/* <MainDrawerNavigation /> */}
             {/* Drawer нэмэгдэхээр бол дээрхи кодны коммент -г авах */}
             <HeaderContent />
-            <HomeScreenTabNavigation />
+            <MainDrawerNavigation />
+            {/* <HomeScreenTabNavigation /> */}
           </MenuProvider>
         </MainStore>
       </NavigationContainer>

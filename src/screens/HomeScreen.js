@@ -17,7 +17,7 @@ import {
   renderers,
 } from "react-native-popup-menu";
 
-const HomeScreen = () => {
+const HomeScreen = (props) => {
   const state = useContext(MainContext);
   return (
     <View
@@ -53,7 +53,10 @@ const HomeScreen = () => {
             />
           </MenuOptions>
         </Menu>
-        <TouchableOpacity style={styles.verticalFloatinMenu}>
+        <TouchableOpacity
+          style={[styles.verticalFloatinMenu, { width: 220 }]}
+          onPress={() => props.navigation.openDrawer()}
+        >
           <Text style={{ color: "#fff" }}>БҮТЭЭЛТЭЙ АЖИЛЛАХ</Text>
           <Icon
             type="entypo"
