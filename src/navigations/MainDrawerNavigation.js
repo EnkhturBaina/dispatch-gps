@@ -185,7 +185,6 @@ const MainDrawerNavigation = () => {
           drawerLabelStyle: {},
           swipeEdgeWidth: 0,
         }}
-        useLegacyImplementation
         drawerContent={(props) => <CustomDrawerContent {...props} />}
       >
         {!state.isLoggedIn ? (
